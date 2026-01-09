@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import Pizza from "./projects/pizza-menu";
+import PizzaMenu from "./projects/pizza-menu/index.jsx";
 
 function App() {
   return (
     <>
-      <h1>Hello React!!</h1>
-      <Pizza />
+      <PizzaMenu />
     </>
   );
 }

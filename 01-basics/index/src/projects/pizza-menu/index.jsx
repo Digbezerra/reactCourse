@@ -1,27 +1,64 @@
 import React from "react";
-import { pizzaData } from "./data";
+
+import Header from "./components/Header.jsx";
+import Menu from "./components/Menu.jsx";
+import Footer from "./components/Footer.jsx";
+
 import "./index.css";
 
-function Pizza() {
-  const pizzas = pizzaData;
-  console.log(pizzas);
-  return (
-    <>
-      <h2>Pizza</h2>
-      {pizzas.map((item) => {
-        return (
-          <div>
-            <img src={item.photoName} alt={item.name} />
+export const pizzaData = [
+  {
+    name: "Focaccia",
+    ingredients: "Bread with italian olive oil and rosemary",
+    price: 6,
+    photoName: "projects/pizza-menu/focaccia.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Margherita",
+    ingredients: "Tomato and mozarella",
+    price: 10,
+    photoName: "projects/pizza-menu/margherita.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Spinaci",
+    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+    price: 12,
+    photoName: "projects/pizza-menu/spinaci.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Funghi",
+    ingredients: "Tomato, mozarella, mushrooms, and onion",
+    price: 12,
+    photoName: "projects/pizza-menu/funghi.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Salamino",
+    ingredients: "Tomato, mozarella, and pepperoni",
+    price: 15,
+    photoName: "projects/pizza-menu/salamino.jpg",
+    soldOut: true,
+  },
+  {
+    name: "Pizza Prosciutto",
+    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+    price: 18,
+    photoName: "projects/pizza-menu/prosciutto.jpg",
+    soldOut: false,
+  },
+];
 
-            <h2>{item.name}</h2>
-            <p>{item.ingredients}</p>
-            <p>{item.price}</p>
-            <p>{`${item.soldOut}`}</p>
-          </div>
-        );
-      })}
-    </>
+function PizzaMenu() {
+  return (
+    <div className="container">
+      <Header />
+      <Menu pizzas={pizzaData} />
+      <Footer />
+    </div>
   );
 }
 
-export default Pizza;
+export default PizzaMenu;
