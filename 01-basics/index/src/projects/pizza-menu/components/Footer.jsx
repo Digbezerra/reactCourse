@@ -8,7 +8,6 @@ function Footer() {
 
   return (
     <footer>
-      <p>Commit</p>
       <p>
         {isOpen
           ? "We're currently opened"
