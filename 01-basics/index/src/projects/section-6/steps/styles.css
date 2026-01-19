@@ -89,3 +89,8 @@ h3 {
 .close:hover {
 	color: #7950f2;
 }
+
+.inactive {
+	opacity: 0.5;
+	pointer-events: none;
+}
