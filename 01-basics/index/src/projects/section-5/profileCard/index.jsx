@@ -2,7 +2,7 @@ import React from "react";
 import Avatar from "./components/Avatar";
 import Intro from "./components/Intro";
 import SkillList from "./components/SkillList";
-import "./styles.css";
+import "./style.css";
 
 const userData = {
 	name: "John Doe",

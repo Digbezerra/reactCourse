@@ -4,7 +4,7 @@ import Header from "./components/Header.jsx";
 import Menu from "./components/Menu.jsx";
 import Footer from "./components/Footer.jsx";
 
-import "./styles.css";
+import "./style.css";
 
 export const pizzaData = [
 	{
