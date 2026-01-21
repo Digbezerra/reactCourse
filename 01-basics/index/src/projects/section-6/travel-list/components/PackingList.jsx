@@ -1,7 +1,17 @@
 import React from "react";
 
-function PackingList() {
-	return <div className="list">LIST</div>;
+import Item from "./Item";
+
+function PackingList({ initialItems }) {
+	return (
+		<div className="list">
+			<ul>
+				{initialItems.map((item) => (
+					<Item itemData={item} key={item.id} />
+				))}
+			</ul>
+		</div>
+	);
 }
 
 export default PackingList;
