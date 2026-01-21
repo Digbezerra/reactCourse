@@ -7,12 +7,13 @@ import ReactDOM from "react-dom/client";
 
 // SECTION-6
 // import Steps from "./projects/section-6/steps/index.jsx";
-import TravelList from "./projects/section-6/travel-list";
+// import TravelList from "./projects/section-6/travel-list";
+import FlashCards from "./projects/section-6/flash-cards";
 
 function App() {
 	return (
 		<>
-			<TravelList />
+			<FlashCards />
 		</>
 	);
 }
