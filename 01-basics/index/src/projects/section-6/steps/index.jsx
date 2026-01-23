@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./Button";
+
 import "./style.css";
 
 const messages = [
@@ -18,6 +20,10 @@ function Steps() {
 		step > 1 && setStep((prevStep) => prevStep - 1);
 	};
 
+	const alerta = () => {
+		alert("aiii porra");
+	};
+
 	return (
 		<>
 			<div className="steps">
@@ -32,20 +38,20 @@ function Steps() {
 					</span>
 				</div>
 				<div className="buttons">
-					<button
+					<Button
 						className={`previous ${step === 1 ? "inactive" : ""}`}
-						style={{ backgroundColor: "#7950f2", color: "#fff" }}
-						onClick={() => handlePrevious()}
+						styles={{ backgroundColor: "#7950f2", color: "#fff" }}
+						action={handlePrevious}
 					>
 						Previous
-					</button>
-					<button
+					</Button>
+					<Button
 						className={`next ${step === 3 ? "inactive" : ""}`}
-						style={{ backgroundColor: "#7950f2", color: "#fff" }}
-						onClick={() => handleNext()}
+						styles={{ backgroundColor: "#7950f2", color: "#fff" }}
+						action={handleNext}
 					>
 						Next
-					</button>
+					</Button>
 				</div>
 			</div>
 		</>
