@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form({ onAddItems }) {
 	const [description, setDescription] = useState("");
 	const [quantity, setQuantity] = useState(1);
 
@@ -15,10 +15,9 @@ function Form() {
 			id: Date.now(),
 		};
 
+		onAddItems(newItem);
 		setDescription("");
 		setQuantity(1);
-
-		console.log(newItem);
 	};
 
 	return (
@@ -40,7 +39,7 @@ function Form() {
 				value={description}
 				onChange={(e) => setDescription(e.target.value)}
 			/>
-			<button>Add</button>
+			<button type="submit">Add</button>
 		</form>
 	);
 }

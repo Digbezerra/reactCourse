@@ -1,12 +1,17 @@
 import React from "react";
 
-function Item({ itemData }) {
+function Item({ itemData, onDeleteItem, onToggleItem }) {
 	return (
 		<li>
+			<input
+				type="checkbox"
+				value={itemData.packed}
+				onChange={() => onToggleItem(itemData.id)}
+			/>
 			<span style={itemData.packed ? { textDecoration: "line-through" } : {}}>
 				{itemData.quantity} {itemData.description}
 			</span>
-			<button>❌</button>
+			<button onClick={() => onDeleteItem(itemData.id)}>❌</button>
 		</li>
 	);
 }
