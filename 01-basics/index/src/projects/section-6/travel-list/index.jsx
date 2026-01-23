@@ -34,7 +34,7 @@ function TravelList() {
 				onDeleteItem={handleDeleteItems}
 				onToggleItem={handleToggleItem}
 			/>
-			<Stats />
+			<Stats items={items} />
 		</div>
 	);
 }
