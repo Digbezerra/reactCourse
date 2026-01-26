@@ -10,12 +10,13 @@ import ReactDOM from "react-dom/client";
 // import TravelList from "./projects/section-6/travel-list";
 // import FlashCards from "./projects/section-6/flash-cards";
 // import DateCounter from "./projects/section-6/date-counter";
-import Accordion from "./projects/section-6/accordion";
+// import Accordion from "./projects/section-6/accordion";
+import TipCalculator from "./projects/section-6/tip-calculator";
 
 function App() {
 	return (
 		<>
-			<Accordion />
+			<TipCalculator />
 		</>
 	);
 }
