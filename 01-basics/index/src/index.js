@@ -11,12 +11,15 @@ import ReactDOM from "react-dom/client";
 // import FlashCards from "./projects/section-6/flash-cards";
 // import DateCounter from "./projects/section-6/date-counter";
 // import Accordion from "./projects/section-6/accordion";
-import TipCalculator from "./projects/section-6/tip-calculator";
+// import TipCalculator from "./projects/section-6/tip-calculator";
+
+//SECTION-8
+import UsePopCorn from "./projects/section-8/use-pop-corn";
 
 function App() {
 	return (
 		<>
-			<TipCalculator />
+			<UsePopCorn />
 		</>
 	);
 }
