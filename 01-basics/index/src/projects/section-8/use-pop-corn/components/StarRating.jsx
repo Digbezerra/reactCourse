@@ -11,22 +11,58 @@ const starContainerStyle = {
 	display: "flex",
 };
 
-const textStyle = {
-	lineHeight: "1",
-	margin: "0",
-};
+function StarRating({
+	maxRating = 10,
+	color = "#fcc419",
+	size = 48,
+	className = "",
+	messages = [],
+	defaultRating = 0,
+	onSetRating = () => {},
+}) {
+	const [rating, setRating] = useState(defaultRating);
+	const [tempRating, setTempRating] = useState(0);
 
-function StarRating({ maxRating = 10 }) {
-	const [rating, setRating] = useState(0);
+	const handleRating = (rating) => {
+		setRating(rating);
+		onSetRating(rating);
+	};
+
+	const handleHoverIn = (rating) => {
+		setTempRating(rating);
+	};
+
+	const handleHoverOut = () => {
+		setTempRating(0);
+	};
+
+	const textStyle = {
+		lineHeight: "1",
+		margin: "0",
+		fontSize: `${size / 1.5}px`,
+		color,
+	};
 
 	return (
-		<div style={containerStyle}>
+		<div style={containerStyle} className={className}>
 			<div style={starContainerStyle}>
 				{Array.from({ length: maxRating }, (_, i) => (
-					<Star />
+					<Star
+						key={i}
+						onRate={() => handleRating(i + 1)}
+						onHoverIn={() => handleHoverIn(i + 1)}
+						onHoverOut={() => handleHoverOut()}
+						full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
+						size={size}
+						color={color}
+					/>
 				))}
 			</div>
-			<p style={textStyle}>{rating || ""}</p>
+			<p style={textStyle}>
+				{messages.length === maxRating
+					? messages[tempRating ? tempRating - 1 : rating - 1]
+					: tempRating || rating || ""}
+			</p>
 		</div>
 	);
 }

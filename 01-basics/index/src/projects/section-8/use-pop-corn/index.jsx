@@ -63,6 +63,7 @@ const tempWatchedData = [
 function UsePopCorn() {
 	const [movies, setMovies] = useState(tempMovieData);
 	const [watched, setWatched] = useState(tempWatchedData);
+	const [rating, setRating] = useState(0);
 
 	return (
 		<>
@@ -79,9 +80,17 @@ function UsePopCorn() {
 					<WatchedList watched={watched} />
 				</BoxContainer>
 			</Main>
-			<StarRating maxRating={10} />
+			<StarRating maxRating={10} color="#fcc419" size={48} />
 			<StarRating maxRating={5} />
-			<StarRating />
+			<StarRating
+				size={24}
+				color="red"
+				maxRating={5}
+				messages={["Terrible", "Bad", "Okay", "It's Good", "Amazing"]}
+				defaultRating={1}
+				onSetRating={setRating}
+			/>
+			<p>{rating}</p>
 		</>
 	);
 }
