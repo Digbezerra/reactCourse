@@ -14,12 +14,14 @@ import ReactDOM from "react-dom/client";
 // import TipCalculator from "./projects/section-6/tip-calculator";
 
 //SECTION-8
-import UsePopCorn from "./projects/section-8/use-pop-corn";
+// import UsePopCorn from "./projects/section-8/use-pop-corn";
+
+import TextExpanderApp from "./projects/section-8/text-expander";
 
 function App() {
 	return (
 		<>
-			<UsePopCorn />
+			<TextExpanderApp />
 		</>
 	);
 }
