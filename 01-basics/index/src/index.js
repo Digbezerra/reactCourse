@@ -15,13 +15,16 @@ import ReactDOM from "react-dom/client";
 
 //SECTION-8
 // import UsePopCorn from "./projects/section-8/use-pop-corn";
+// import TextExpanderApp from "./projects/section-8/text-expander";
 
-import TextExpanderApp from "./projects/section-8/text-expander";
+//SECTION-9
+
+import Tabs from "./projects/section-8/tabs";
 
 function App() {
 	return (
 		<>
-			<TextExpanderApp />
+			<Tabs />
 		</>
 	);
 }
