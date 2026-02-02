@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
@@ -10,8 +10,12 @@ import SearchBar from "./components/SearchBar";
 import WatchedSummary from "./components/WatchedSummary";
 import WatchedList from "./components/WatchedList";
 import StarRating from "./components/StarRating";
+import Loader from "./components/Loader";
+import ErrorMessage from "./components/ErrorMessage";
 
 import "./style.css";
+
+const API_KEY = "1ae51271";
 
 const tempMovieData = [
 	{
@@ -61,19 +65,49 @@ const tempWatchedData = [
 ];
 
 function UsePopCorn() {
-	const [movies, setMovies] = useState(tempMovieData);
+	const [movies, setMovies] = useState([]);
 	const [watched, setWatched] = useState(tempWatchedData);
 	const [rating, setRating] = useState(0);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState("");
+	const [query, setQuery] = useState("");
+	// const query = "dsuyga";
 
+	useEffect(() => {
+		const fetchMovies = async () => {
+			try {
+				setIsLoading(true);
+				setError("");
+				const res = await fetch(
+					`http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${query}`,
+				);
+				if (!res.ok)
+					throw new Error("Something went wrong with fecthing movies!");
+				const data = await res.json();
+				if (data.Response === "False") throw new Error("Movie not found");
+				setMovies(data.Search);
+				setIsLoading(false);
+			} catch (err) {
+				console.error(err.message);
+				setError(err.message);
+				setIsLoading(false);
+				if (query.length === 0) setError("");
+			}
+		};
+		fetchMovies();
+	}, [query]);
+	console.log(query);
 	return (
 		<>
 			<NavBar>
-				<SearchBar />
+				<SearchBar onSetQuery={setQuery} query={query} />
 				<NumResults movies={movies} />
 			</NavBar>
 			<Main>
 				<BoxContainer>
-					<MovieList movies={movies} />
+					{isLoading && <Loader />}
+					{!isLoading && !error && <MovieList movies={movies} />}
+					{error && <ErrorMessage message={error} />}
 				</BoxContainer>
 				<BoxContainer>
 					<WatchedSummary watched={watched} />
@@ -90,7 +124,6 @@ function UsePopCorn() {
 				defaultRating={1}
 				onSetRating={setRating}
 			/>
-			<p>{rating}</p>
 		</>
 	);
 }
