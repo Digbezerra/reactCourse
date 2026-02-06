@@ -5,7 +5,7 @@ import background from "@/public/bg.png";
 
 export default function Home() {
 	return (
-		<main className="mt-24">
+		<div className="mt-24">
 			<Image
 				src={background}
 				fill
@@ -26,6 +26,6 @@ export default function Home() {
 					Explore luxury cabins
 				</Link>
 			</div>
-		</main>
+		</div>
 	);
 }
